@@ -1,0 +1,36 @@
+version: '2.4'
+services:
+    nginx:
+        build: ./docker/nginx
+        volumes_from:
+            - php:ro
+        volumes:
+            - ./docker/nginx/conf.d/dev.conf:/etc/nginx/conf.d/dev.conf
+        networks:
+            default:
+            static-network:
+                ipv4_address: '172.50.0.4'
+    php:
+        build: ./docker/php
+        working_dir: /app
+        command: php-fpm -R
+        user: ${UID}
+        links:
+            - mysql
+        volumes:
+            - .:/app
+        environment:
+            PHP_EXTRA_CONFIGURE_ARGS: '--enable-fpm --with-fpm-user=kolja --with-fpm-group=kolja'
+    mysql:
+        image: mysql:5.7
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: "123"
+
+networks:
+    static-network:
+        driver: bridge
+        ipam:
+            config:
+                - subnet: '172.50.0.0/24'
