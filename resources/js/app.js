@@ -1,13 +1,14 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+import vue from "vue";
+window.Vue = vue;
 
-require('./bootstrap');
+import "./bootstrap";
 
-window.Vue = require('vue');
+import L from "leaflet";
 
 /**
  * The following block of code may be used to automatically register your
@@ -28,6 +29,11 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: '#app'
-});
+// const app = new Vue({
+//     el: '#app'
+// });
+
+// const map = L.map('map', {
+//     center: [51.505, -0.09],
+//     zoom: 13
+// });

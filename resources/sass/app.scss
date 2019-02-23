@@ -4,7 +4,14 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+@import "~leaflet/dist/leaflet.css";
+
+
 .navbar-laravel {
   background-color: #f00;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+#map {
+  height: 500px;
 }
