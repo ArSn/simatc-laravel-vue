@@ -34,8 +34,6 @@ services:
         image: node:8.15.0
         command: bash -c 'yarn install && yarn run dev && yarn run watch'
         working_dir: /app
-        extra_hosts:
-          - 'sim-atc-dev.de:172.50.0.4'
         expose:
             - 3000
         volumes_from:
