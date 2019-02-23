@@ -12,7 +12,7 @@
     </head>
     <body>
 
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
         <a class="navbar-brand" href="#">Sim ATC</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -41,13 +41,15 @@
         </div>
     </nav>
 
-    <main role="main">
-
-
+    <main role="main" class="container">
+        <div class="row">
+            <div class="col-md-2">Stats</div>
+            <div class="col-md-10">map</div>
+        </div>
 
     </main>
 
-    <footer class="container">
+    <footer class="container border-top pt-2 fixed-bottom">
         <p>Happily running on open source</p>
     </footer>
 
