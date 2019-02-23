@@ -41,35 +41,11 @@
         </div>
     </nav>
 
-    <main role="main" class="container">
+    <main role="main" id="main" class="container">
         <div class="row">
             <div class="col-md-2">Stats</div>
-            <div class="col-md-10" id="map"></div>
+            <div class="col-md-10"><map-component></map-component></div>
         </div>
-
-
-        <script>
-            const map = new L.Map('map');
-
-            // create the tile layer with correct attribution
-            var osmUrl='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-            var osmAttrib='Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors';
-            var osm = new L.TileLayer(osmUrl, {minZoom: 8, maxZoom: 20, zoomSnap: 0.1, attribution: osmAttrib});
-
-            // start the map in South-East England
-            map.setView(new L.LatLng(52.55835117305416, 13.289337158203127), 14);
-            map.addLayer(osm);
-
-            map.zoomIn(0.2);
-
-            map.on('zoomend', function() {
-                console.log(map.getZoom());
-            });
-            map.on('moveend', function() {
-                console.log(map.getCenter());
-            });
-        </script>
-
     </main>
 
     <footer class="container border-top pt-2 fixed-bottom">
