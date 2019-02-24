@@ -21,6 +21,37 @@
             ...mapMutations(['setMap']),
 		    flyTo() {
                 this.map.flyTo(this.latLng, this.position.zoom);
+		    },
+		    initializeMap()
+		    {
+                const map = new L.Map('map', {
+                    zoomSnap: 0.1,
+                    zoomDelta: 0.1,
+                    zoomControl: false
+                });
+                this.setMap(map);
+
+                // create the tile layer with correct attribution
+                const osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+                const osmAttrib = 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors';
+                const osm = new L.TileLayer(osmUrl, {
+                    minZoom: 8,
+                    maxZoom: 20,
+                    attribution: osmAttrib
+                });
+
+                map.setView(this.latLng, this.position.zoom);
+                map.addLayer(osm);
+
+                map.on('zoomend', function() {
+                    console.log(map.getZoom());
+                });
+                map.on('moveend', function() {
+                    console.log(map.getCenter());
+                });
+		    },
+		    zoomToFirstArea() {
+			    // todo: zoom to position of first button here instead of having a duplicate default in this component
 		    }
 	    },
 
@@ -39,23 +70,8 @@
         },
 
         mounted() {
-            const map = new L.Map('map');
-            this.setMap(map);
-
-            // create the tile layer with correct attribution
-            const osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-            const osmAttrib = 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors';
-            const osm = new L.TileLayer(osmUrl, {minZoom: 8, maxZoom: 20, zoomSnap: 0.1, attribution: osmAttrib});
-
-            map.setView(this.latLng, this.position.zoom);
-            map.addLayer(osm);
-
-            map.on('zoomend', function() {
-                console.log(map.getZoom());
-            });
-            map.on('moveend', function() {
-                console.log(map.getCenter());
-            });
+            this.initializeMap();
+            this.zoomToFirstArea();
         }
     }
 </script>

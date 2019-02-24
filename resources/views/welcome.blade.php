@@ -45,9 +45,13 @@
         <div class="row">
             <div class="col-md-2">Stats</div>
             <div class="col-md-10">
-                <map-zoom-button lat="52.55835117305416" lng="13.289337158203127" zoom="14">Airport</map-zoom-button>
-                <map-zoom-button lat="52.55835117305416" lng="13.289337158203127" zoom="15">Tower</map-zoom-button>
-                <map-zoom-button lat="52.55413735195839" lng="13.293113708496096" zoom="16">Apron</map-zoom-button>
+                <map-zoom-button lat="52.55835117305416" lng="13.289337158203127" zoom="13.5">Airport</map-zoom-button>
+                <map-zoom-button lat="52.558223266446674" lng="13.288771814370538" zoom="14.5">Tower</map-zoom-button>
+                <map-zoom-button lat="52.55779899222007" lng="13.287973956814277" zoom="14.7">Ground</map-zoom-button>
+                <map-zoom-button lat="52.55411015638913" lng="13.292843171815557" zoom="15.8">Apron</map-zoom-button>
+                <map-zoom-button lat="52.554402829246676" lng="13.290372663505071" zoom="16.9">Terminal A</map-zoom-button>
+                <map-zoom-button lat="52.55538161579782" lng="13.296191097682016" zoom="16.9">Terminal C</map-zoom-button>
+                <map-zoom-button lat="52.552261897301264" lng="13.291415024514698" zoom="16.9">Terminal D</map-zoom-button>
                 <map-component></map-component>
             </div>
         </div>
