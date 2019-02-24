@@ -30,6 +30,17 @@
             latLng() {
                 return new L.LatLng(this.lat, this.lng);
             },
+	        position() {
+                return {
+                    lat: this.lat,
+                    lng: this.lng,
+                    zoom: this.zoom,
+                };
+	        }
         },
+
+	    mounted() {
+            this.$store.commit('registerMapAreaZoom', this);
+	    }
     }
 </script>

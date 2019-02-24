@@ -4,16 +4,12 @@
 
 <script>
     import * as L from "leaflet";
-    import {mapMutations, mapState} from "vuex";
+    import {mapGetters, mapMutations, mapState} from "vuex";
 
     export default {
         data() {
             return {
-                position: {
-                    lat: 52.55835117305416,
-	                lng: 13.289337158203127,
-                    zoom: 14,
-                },
+                position: {},
             };
         },
 
@@ -40,7 +36,7 @@
                     attribution: osmAttrib
                 });
 
-                map.setView(this.latLng, this.position.zoom);
+                // map.setView(this.latLng, this.position.zoom);
                 map.addLayer(osm);
 
                 map.on('zoomend', function() {
@@ -51,12 +47,15 @@
                 });
 		    },
 		    zoomToFirstArea() {
-			    // todo: zoom to position of first button here instead of having a duplicate default in this component
+                this.position = this.firstMapAreaZoom.position;
+
+                this.map.setView(this.latLng, this.position.zoom);
 		    }
 	    },
 
 	    computed: {
             ...mapState(['map']),
+		    ...mapGetters(['firstMapAreaZoom']),
             latLng() {
                 return new L.LatLng(this.position.lat, this.position.lng);
             },
@@ -71,7 +70,9 @@
 
         mounted() {
             this.initializeMap();
-            this.zoomToFirstArea();
+            this.$nextTick(function () {
+                this.zoomToFirstArea();
+            });
         }
     }
 </script>
