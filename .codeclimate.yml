@@ -38,5 +38,7 @@ plugins:
         enabled: true
     phpmd:
         enabled: true
+        config:
+            rulesets: "cleancode,codesize,controversial,design,unusedcode,phpmd.xml"
     sonar-php:
         enabled: true
