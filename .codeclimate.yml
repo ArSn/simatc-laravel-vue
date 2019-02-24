@@ -35,6 +35,7 @@ plugins:
         enabled: true
         channel: "eslint-5"
         config:
+            config: node_modules/eslint-config-vue/
             extensions:
                 - .vue
                 - .js
