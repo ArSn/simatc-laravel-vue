@@ -44,7 +44,12 @@
     <main role="main" id="main" class="container">
         <div class="row">
             <div class="col-md-2">Stats</div>
-            <div class="col-md-10"><map-component></map-component></div>
+            <div class="col-md-10">
+                <map-zoom-button lat="52.55835117305416" lng="13.289337158203127" zoom="14">Airport</map-zoom-button>
+                <map-zoom-button lat="52.55835117305416" lng="13.289337158203127" zoom="15">Tower</map-zoom-button>
+                <map-zoom-button lat="52.55413735195839" lng="13.293113708496096" zoom="16">Apron</map-zoom-button>
+                <map-component></map-component>
+            </div>
         </div>
     </main>
 

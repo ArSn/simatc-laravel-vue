@@ -1,9 +1,10 @@
 <template>
-	<div class="container" id="map"></div>
+	<div class="container mt-2" id="map"></div>
 </template>
 
 <script>
     import * as L from "leaflet";
+    import {mapMutations, mapState} from "vuex";
 
     export default {
         data() {
@@ -13,18 +14,18 @@
 	                lng: 13.289337158203127,
                     zoom: 14,
                 },
-	            map: null,
             };
         },
 
 	    methods: {
+            ...mapMutations(['setMap']),
 		    flyTo() {
-                console.log('called!');
                 this.map.flyTo(this.latLng, this.position.zoom);
 		    }
 	    },
 
 	    computed: {
+            ...mapState(['map']),
             latLng() {
                 return new L.LatLng(this.position.lat, this.position.lng);
             },
@@ -39,7 +40,7 @@
 
         mounted() {
             const map = new L.Map('map');
-            this.map = map;
+            this.setMap(map);
 
             // create the tile layer with correct attribution
             const osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
@@ -58,3 +59,9 @@
         }
     }
 </script>
+
+<style>
+	#map {
+		height: 500px;
+	}
+</style>

@@ -6,6 +6,8 @@
 import Vue from "vue";
 window.Vue = Vue;
 
+import store from './store.js';
+
 import "./bootstrap";
 
 const files = require.context('./', true, /\.vue$/i);
@@ -19,6 +21,7 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
 
 $( document ).ready(function() {
     const app = new Vue({
-        el: '#main'
+        el: '#main',
+        store
     });
 });
