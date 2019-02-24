@@ -34,11 +34,6 @@ plugins:
     eslint:
         enabled: true
         channel: "eslint-5"
-        config:
-            plugins: vue
-            extensions:
-                - .vue
-                - .js
     phpcodesniffer:
         enabled: true
     phpmd:
