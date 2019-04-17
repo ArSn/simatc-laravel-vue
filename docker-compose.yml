@@ -31,8 +31,8 @@ services:
         environment:
             MYSQL_ROOT_PASSWORD: "123"
     node:
-        image: node:8.15.0
-        command: bash -c 'yarn install && yarn run dev && yarn run watch'
+        image: node:11.14.0-alpine
+        command: sh -c 'yarn install && yarn run dev && yarn run watch'
         working_dir: /app
         expose:
             - 3000
