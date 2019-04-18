@@ -6,6 +6,15 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         mapAreaZooms: [],
+
+        // todo: airport structure temporarily comes from this vuex store until it is retrieved from some database
+        airport: {
+            structure: {
+                runways: {
+
+                }
+            }
+        }
     },
 
     mutations: {
@@ -22,6 +31,20 @@ export default new Vuex.Store({
     getters: {
         firstMapAreaZoom(context) {
             return context.mapAreaZooms[0];
+        },
+        airportStructure() {
+            // let container = new JGFContainer();
+
+            // TODO: strip everything that handles files and work great in the web with this! https://github.com/ArSn/jay-gee-eff
+
+            // const airport = new JGFGraph('airport', 'EDDT', false);
+            //
+            // airport.addNode('rwy26r-east', 'RWY 26R East', { lat: 52.561878143251654, lng: 13.309024572372438 });
+            // airport.addNode('rwy26r-west', 'RWY 26R West', { lat: 52.55779012076495, lng: 13.267173069373499 });
+            //
+            // airport.addEdge('rwy26r-east', 'rwy26r-west', 'is-runway', 'RWY 26R');
+            //
+            // console.log(airport.json);
         }
     }
 

@@ -6,12 +6,13 @@
     import * as L from "leaflet";
     import "leaflet-draw";
     import {mapGetters, mapMutations, mapState} from "vuex";
+    import {JgfNode, JgfEdge, JgfGraph} from "jay-gee-eff-for-web";
 
     export default {
         data() {
             return {
                 position: {},
-	            debug: false, // todo: should probably go somewhere else, maybe vuex?
+	            debug: true, // todo: should probably go somewhere else, maybe vuex?
             };
         },
 
@@ -95,7 +96,42 @@
                     console.log('clicked!: ', latlng);
 
                 });
-		    }
+		    },
+            /**
+             * @param {JgfGraph} graph
+             */
+		    drawPaths(graph) {
+                _.forEach(graph.edges, (edge) => {
+                    const firstNode = graph.getNodeById(edge.source);
+                    const secondNode = graph.getNodeById(edge.target);
+
+                    const line = new L.Polyline([
+                        new L.LatLng(firstNode.metadata.lat, firstNode.metadata.lng),
+                        new L.LatLng(secondNode.metadata.lat, secondNode.metadata.lng)
+                    ], {
+                        color: this.determinePathColor(edge),
+                        weight: 3,
+                        opacity: 0.5,
+                        smoothFactor: 1
+                    });
+                    line.addTo(this.map);
+                });
+		    },
+            /**
+             * @param {JgfEdge} edge
+             * @return {string}
+             */
+            determinePathColor(edge) {
+		        switch (edge.relation) {
+			        case 'is-runway': {
+			            return 'red';
+			        }
+                    case 'is-taxiway': {
+                        return 'yellow';
+                    }
+                }
+		        return 'black';
+            }
 	    },
 
 	    computed: {
@@ -116,23 +152,22 @@
         mounted() {
             this.initializeMap();
             this.$nextTick(function () {
+
+                const graph = new JgfGraph();
+                // todo: which IDs to use?
+                graph.addNode(new JgfNode('left', 'Left Point', { lat: 52.561878143251654, lng: 13.309024572372438 }));
+                graph.addNode(new JgfNode('right', 'Right Point', { lat: 52.55779012076495, lng: 13.267173069373499 }));
+                graph.addEdge(new JgfEdge('left', 'right', 'is-runway', 'RWY 08L/26R'));
+
+                graph.addNode(new JgfNode('top', 'Top Point', { lat: 52.55929438246897, lng: 13.280965354333821 }));
+                graph.addNode(new JgfNode('bottom', 'Bottom Point', { lat: 52.555913156301095, lng: 13.281908543057986 }));
+                graph.addEdge(new JgfEdge('top', 'bottom', 'is-taxiway', 'Taxiways TM and TS'));
+
+                this.drawPaths(graph);
                 this.zoomToFirstArea();
 
-                // draw line here for debug purpose
-	            // todo: should go to reasonable place
+	            // const structure = this.$store.airportStructure;
 
-	            // RWY 26R EDDT
-                var pointA = new L.LatLng(52.561878143251654, 13.309024572372438);
-                var pointB = new L.LatLng(52.55779012076495, 13.267173069373499);
-                var pointList = [pointA, pointB];
-
-                var firstpolyline = new L.Polyline(pointList, {
-                    color: 'red',
-                    weight: 3,
-                    opacity: 0.5,
-                    smoothFactor: 1
-                });
-                firstpolyline.addTo(this.map);
             });
         }
     }
