@@ -5,6 +5,7 @@
 <script>
     import * as L from "leaflet";
     import "leaflet-draw";
+    import "leaflet-geometryutil";
     import {mapGetters, mapMutations, mapState} from "vuex";
     import {JgfNode, JgfEdge, JgfGraph} from "jay-gee-eff-for-web";
 
@@ -17,7 +18,7 @@
         },
 
 	    methods: {
-            ...mapMutations(['setMap']),
+            ...mapMutations(['setMap', 'setPaths']),
 		    flyTo() {
                 this.map.flyTo(this.latLng, this.position.zoom);
 		    },
@@ -91,10 +92,20 @@
                 map.on('moveend', function() {
                     console.log('moveend: ', map.getCenter());
                 });
-                map.on('click', function(ev){
-                    var latlng = map.mouseEventToLatLng(ev.originalEvent);
-                    console.log('clicked!: ', latlng);
 
+                map.on('click', this.handleClick);
+		    },
+		    handleClick(event) {
+                const map = this.map;
+                let latlng = map.mouseEventToLatLng(event.originalEvent);
+                // todo: dead code?
+                // let marker = L.marker(e.latlng).addTo(map).bindPopup(e.latlng + '<br/>' + e.layerPoint).openPopup();
+
+                let closestPointToPolygon;
+
+                _.forEach(this.paths, (path) => {
+                    closestPointToPolygon = L.GeometryUtil.closest(map, path, event.latlng);
+                    L.marker(closestPointToPolygon).addTo(map).bindPopup('Closest point on polygon1');
                 });
 		    },
             /**
@@ -114,6 +125,9 @@
                         opacity: 0.5,
                         smoothFactor: 1
                     });
+
+                    this.paths.push(line);
+
                     line.addTo(this.map);
                 });
 		    },
@@ -135,7 +149,7 @@
 	    },
 
 	    computed: {
-            ...mapState(['map']),
+            ...mapState(['map', 'paths']),
 		    ...mapGetters(['firstMapAreaZoom']),
             latLng() {
                 return new L.LatLng(this.position.lat, this.position.lng);
@@ -159,7 +173,7 @@
                 graph.addNode(new JgfNode('right', 'Right Point', { lat: 52.55779012076495, lng: 13.267173069373499 }));
                 graph.addEdge(new JgfEdge('left', 'right', 'is-runway', 'RWY 08L/26R'));
 
-                graph.addNode(new JgfNode('top', 'Top Point', { lat: 52.55929438246897, lng: 13.280965354333821 }));
+                graph.addNode(new JgfNode('top', 'Top Point', { lat: 52.55916, lng: 13.28113 }));
                 graph.addNode(new JgfNode('bottom', 'Bottom Point', { lat: 52.555913156301095, lng: 13.281908543057986 }));
                 graph.addEdge(new JgfEdge('top', 'bottom', 'is-taxiway', 'Taxiways TM and TS'));
 

@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         mapAreaZooms: [],
+        paths: [],
 
         // todo: airport structure temporarily comes from this vuex store until it is retrieved from some database
         airport: {
@@ -22,6 +23,9 @@ export default new Vuex.Store({
         // with the same name, but apparently this is currently the case with Vuex right now
         setMap(state, map) {
             state.map = map;
+        },
+        setPaths(state, paths) {
+            state.paths = paths;
         },
         registerMapAreaZoom(state, areaZoom) {
             state.mapAreaZooms.push(areaZoom);
