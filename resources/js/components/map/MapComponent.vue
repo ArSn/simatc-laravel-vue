@@ -96,16 +96,13 @@
                 map.on('click', this.handleClick);
 		    },
 		    handleClick(event) {
-                const map = this.map;
-                let latlng = map.mouseEventToLatLng(event.originalEvent);
-                // todo: dead code?
-                // let marker = L.marker(e.latlng).addTo(map).bindPopup(e.latlng + '<br/>' + e.layerPoint).openPopup();
-
-                let closestPointToPolygon;
+			    const pos = event.latlng;
 
                 _.forEach(this.paths, (path) => {
-                    closestPointToPolygon = L.GeometryUtil.closest(map, path, event.latlng);
-                    L.marker(closestPointToPolygon).addTo(map).bindPopup('Closest point on polygon1');
+                    const closestPointToPolygon = L.GeometryUtil.closest(this.map, path, pos);
+                    L.marker(closestPointToPolygon).addTo(this.map).bindPopup(
+                        'Closest point here (lat;lng): ' + pos.lat + ';' + pos.lng
+                    );
                 });
 		    },
             /**
