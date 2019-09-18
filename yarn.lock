@@ -1635,10 +1635,10 @@ charenc@~0.0.1:
   resolved "https://registry.yarnpkg.com/charenc/-/charenc-0.0.2.tgz#c0a1d2f3a7092e03774bfa83f14c0fc5790a8667"
   integrity sha1-wKHS86cJLgN3S/qD8UwPxXkKhmc=
 
-check-types@^8.0:
-  version "8.0.2"
-  resolved "https://registry.yarnpkg.com/check-types/-/check-types-8.0.2.tgz#400e1b393fa47802135f17d3ab31102a95d84038"
-  integrity sha512-rS6P/iiI/5YVTKc2uYi30l6rp3ygz3+C8woEGQMsJ/77tl5LiSrLxOIm4cNAG3RhjHeKXUn1GrzTED3heX3tPw==
+check-types@^10.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/check-types/-/check-types-10.0.0.tgz#2a5ebaf236615601fb66167b46c09979a73043e6"
+  integrity sha512-FeKh/xUITytmx5fC709lzTnUJPDjeOrVZJ1cvkLwtxXJp8g0z7FY5heK5w1Iy8cYV5n563wCcnnxMjkAc4JzFA==
 
 chokidar@^2.0.0, chokidar@^2.0.2, chokidar@^2.0.3, chokidar@^2.0.4, chokidar@^2.1.5:
   version "2.1.6"
@@ -4226,12 +4226,12 @@ isobject@^3.0.0, isobject@^3.0.1:
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
   integrity sha1-TkMekrEalzFjaqH5yNHMvP2reN8=
 
-jay-gee-eff-for-web@^0.1.0:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/jay-gee-eff-for-web/-/jay-gee-eff-for-web-0.1.1.tgz#5cef544e7e1e6aca9994665670c157c6e5bfcb1a"
-  integrity sha512-xnM02Hfkiui8MqfZE8V6eRVJ+lxLDuxmU1ZNI1PRhEfWBRAme2iCC0Fw2rtvHpf4TstLhNTfze1z8PGZ7Itn8w==
+jay-gee-eff-for-web@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/jay-gee-eff-for-web/-/jay-gee-eff-for-web-0.1.2.tgz#995688944d9b7ef9ed86769397872f9db6924a86"
+  integrity sha512-wgFVpQrqCk1KFNFpi/VhkCaf/Fwhhm0ezw4ttnziLImFisSI0ky+hsd0UaxCeRkWLjCvLHxPxLa/zmztigm0xQ==
   dependencies:
-    check-types "^8.0"
+    check-types "^10.0"
     deepdash "^4.0"
     lodash "^4.17.11"
 
