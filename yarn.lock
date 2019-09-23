@@ -1663,10 +1663,10 @@ charenc@~0.0.1:
   resolved "https://registry.yarnpkg.com/charenc/-/charenc-0.0.2.tgz#c0a1d2f3a7092e03774bfa83f14c0fc5790a8667"
   integrity sha1-wKHS86cJLgN3S/qD8UwPxXkKhmc=
 
-check-types@^10.0:
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/check-types/-/check-types-10.0.0.tgz#2a5ebaf236615601fb66167b46c09979a73043e6"
-  integrity sha512-FeKh/xUITytmx5fC709lzTnUJPDjeOrVZJ1cvkLwtxXJp8g0z7FY5heK5w1Iy8cYV5n563wCcnnxMjkAc4JzFA==
+check-types@^8.0:
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/check-types/-/check-types-8.0.2.tgz#400e1b393fa47802135f17d3ab31102a95d84038"
+  integrity sha512-rS6P/iiI/5YVTKc2uYi30l6rp3ygz3+C8woEGQMsJ/77tl5LiSrLxOIm4cNAG3RhjHeKXUn1GrzTED3heX3tPw==
 
 chokidar@^2.0.0, chokidar@^2.0.2, chokidar@^2.0.3, chokidar@^2.0.4, chokidar@^2.1.5:
   version "2.1.5"
@@ -2365,13 +2365,12 @@ deep-is@~0.1.3:
   resolved "https://registry.yarnpkg.com/deep-is/-/deep-is-0.1.3.tgz#b369d6fb5dbc13eecf524f91b070feedc357cf34"
   integrity sha1-s2nW+128E+7PUk+RsHD+7cNXzzQ=
 
-deepdash@^4.0:
-  version "4.2.14"
-  resolved "https://registry.yarnpkg.com/deepdash/-/deepdash-4.2.14.tgz#38dd79bf1881d068a6ef99ea646c519eea0f86ad"
-  integrity sha512-K4RH+bt4BGqgD3q9Ke1u+soXSFH4UgsHrcaTiolW68b9RJdc+rKJMzEm0VBHbrGtdwP+xcinQWcDAYvgIOLDhw==
+deepdash@^3.1.3:
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/deepdash/-/deepdash-3.1.3.tgz#79da17d482251578eefa8f1ee8c2fe6af26c8463"
+  integrity sha512-o7hsscm3YmIzSo+DkVtRaR1J4VmNub/I4xcQRfkFXQPk6XZ8AkR6F7GSBhd3TqKTf1AUVyALLa3iG5r2y4SC+g==
   dependencies:
-    lodash "^4.17.15"
-    lodash-es "^4.17.15"
+    lodash "^4.17.11"
 
 deepmerge@^2.1.0:
   version "2.2.1"
@@ -4264,13 +4263,13 @@ isobject@^3.0.0, isobject@^3.0.1:
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
   integrity sha1-TkMekrEalzFjaqH5yNHMvP2reN8=
 
-jay-gee-eff-for-web@^0.1.3:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/jay-gee-eff-for-web/-/jay-gee-eff-for-web-0.1.3.tgz#93f08e8aaa5360e3d5b260be84ad1be888140b71"
-  integrity sha512-ioVLkh0Q3H1VFas9NNAPh8fnsmFxxwziardpF4+ioli13cyW4ZnO4H4KYLLkw3f7EFrv59onbNmyv7AMX5IaKA==
+jay-gee-eff-for-web@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/jay-gee-eff-for-web/-/jay-gee-eff-for-web-0.1.0.tgz#cb2780e0085930d22fe54a44fb1bd62f1b94bfeb"
+  integrity sha512-i11+hCyWDZ3S/AhuSZsV/Q2hDEAQ+163U5u/23dYX6R6UCjwtYB59JWWSCjh8c7DHXCpIRRu0v8Df9iKCxvobQ==
   dependencies:
-    check-types "^10.0"
-    deepdash "^4.0"
+    check-types "^8.0"
+    deepdash "^3.1.3"
     lodash "^4.17.11"
 
 jquery@^3.2:
@@ -4545,11 +4544,6 @@ locate-path@^3.0.0:
     p-locate "^3.0.0"
     path-exists "^3.0.0"
 
-lodash-es@^4.17.15:
-  version "4.17.15"
-  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.15.tgz#21bd96839354412f23d7a10340e5eac6ee455d78"
-  integrity sha512-rlrc3yU3+JNOpZ9zj5pQtxnx2THmvRykwL4Xlxoa8I9lHBlVbbyPhgyPMioxVZ4NqyxaVVtaJnzsyOidQIhyyQ==
-
 lodash._baseassign@^3.0.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/lodash._baseassign/-/lodash._baseassign-3.2.0.tgz#8c38a099500f215ad09e59f1722fd0c52bfe0a4e"
@@ -4658,7 +4652,12 @@ lodash.uniq@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
-lodash@^4, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.15, lodash@^4.17.5:
+lodash@^4, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.5:
+  version "4.17.11"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
+  integrity sha512-cQKh8igo5QUhZ7lg38DYWAxMvjSAKG0A8wGSVimP07SIUEK2UO+arSRKbRZWtelMtN5V0Hkwh5ryOto/SshYIg==
+
+lodash@^4.17.15:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
