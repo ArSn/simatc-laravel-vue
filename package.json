@@ -35,7 +35,7 @@
     },
     "dependencies": {
         "eslint-config-vue": "^2.0.2",
-        "jay-gee-eff-for-web": "^0.1.0",
+        "jay-gee-eff-for-web": "^0.1.5",
         "leaflet": "^1.5",
         "leaflet-draw": "^1.0.4",
         "vuex": "^3.1.0"
